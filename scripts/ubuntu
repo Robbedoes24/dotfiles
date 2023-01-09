@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+function pause() {
+	   read -p "$* [ENTER TO CONTINUE]"
+}
+
+pause "Ready to install some tools, libraries, ... for a development machine ?"
+
+# Just add the commands below to start installing tools, dependencies, ...
+sudo apt update
+sudo apt install git -y
+sudo apt install snapd -y
+sudo apt install curl -y
+sudo snap install node --classic --channel=16
+sudo apt install build-essential -y
+
+# Install Zsh and OhMyZsh
+sudo apt install zsh -y
+chsh -s /bin/zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Install NeoFetch
+sudo apt install neofetch
+
+# The end
+pause "All done - best to reboot after rest is done"

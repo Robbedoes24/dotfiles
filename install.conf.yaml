@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: configs/git/gitconfig
+    ~/.bashrc: configs/bash/bashrc
+    ~/.zshrc: configs/zsh/zshrc
+    ~/.p10k.zsh: configs/zsh/themes/p10k_zsh
+    ~/.config/neofetch/config.conf: configs/neofetch/config.conf
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
